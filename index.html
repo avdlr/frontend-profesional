@@ -1,89 +1,112 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" ng-app="brandForgeApp">
 <head>
-	<meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Esto va a ser un blog en foundation</title>
-	<link rel="stylesheet" href="foundation/css/foundation.css" />
-    <script src="foundation/js/vendor/modernizr.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="BrandForge Studio creates posters, keychains, uniforms, billboards, and promotional products for growing businesses." />
+  <title>BrandForge Studio | Business Printing & Promotional Products</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.3/angular.min.js" defer></script>
+  <script src="app.js" defer></script>
 </head>
-<body>
-	<div class="progress">
-	  <span class="meter" style="width:20%;"></span>
-	</div>
-	<header class="row">
-		<h1>
-			Esto es un blog basado en foundation
-		</h1>
-		<nav class="top-bar" data-topbar>
-		  <ul class="title-area">
-		  	<li class="name">
-		    </li>
-		    <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
-		  </ul>
+<body ng-controller="SiteController as site">
+  <header class="site-header">
+    <nav class="navbar" aria-label="Primary navigation">
+      <a class="brand" href="#home" ng-click="site.setPage('home')" aria-label="BrandForge Studio home">
+        <span class="brand-mark">BF</span>
+        <span>BrandForge Studio</span>
+      </a>
+      <button class="menu-toggle" type="button" ng-click="site.toggleMenu()" aria-expanded="{{ site.menuOpen }}" aria-controls="primary-menu">
+        Menu
+      </button>
+      <div class="nav-links" id="primary-menu" ng-class="{ 'is-open': site.menuOpen }">
+        <a href="#home" ng-class="{ active: site.page === 'home' }" ng-click="site.setPage('home')">Home</a>
+        <a href="#services" ng-class="{ active: site.page === 'services' }" ng-click="site.setPage('services')">Services</a>
+        <a class="nav-cta" href="#quote" ng-click="site.setPage('quote')">Request Quote</a>
+      </div>
+    </nav>
+  </header>
 
-		  <section class="top-bar-section">
-		    <ul class="right">
-		      <li class="active"><a href="#">boton activo en la derecha</a></li>
-		      <li class="has-dropdown">
-		        <a href="#">dame click</a>
-		        <ul class="dropdown">
-		          <li><a href="#">primer link del dropdown</a></li>
-		        </ul>
-		      </li>
-		    </ul>
-		    <ul class="left">
-		      <li><a href="#">el boton de la izquierda</a></li>
-		    </ul>
-		  </section>
-		</nav>
-	</header>
-	<section class="row">
-		<section class="small-12 medium-8 large-7 columns">
-			<article class="row panel">
-				<h2>titulo del post</h2>
-				<p>
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, perspiciatis, sunt, cumque tempora minus dicta doloribus ad pariatur mollitia a natus nihil molestias quod exercitationem enim itaque repudiandae ipsum deleniti.
-				</p>
-				<a href="" class="button radius round">ir al post</a>
-			</article>
-			<article class="row panel">
-				<h2>titulo del post</h2>
-				<p>
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, perspiciatis, sunt, cumque tempora minus dicta doloribus ad pariatur mollitia a natus nihil molestias quod exercitationem enim itaque repudiandae ipsum deleniti.
-				</p>
-				<a href="" class="button small">ir al post</a>
-				<a href="" class="button medium">ir al post</a>
-				<a href="" class="button large">ir al post</a>
+  <main>
+    <section id="home" class="hero" ng-show="site.page === 'home'">
+      <div class="hero-copy">
+        <p class="eyebrow">Print • Promote • Grow</p>
+        <h1>Custom branded products that help your business get noticed.</h1>
+        <p class="value-proposition">
+          BrandForge Studio turns ideas into polished posters, uniforms, billboards, keychains, and promotional products with fast proofs, reliable production, and friendly local service.
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="#quote" ng-click="site.setPage('quote')">Request Quote</a>
+          <a class="button secondary" href="#services" ng-click="site.setPage('services')">View Services</a>
+        </div>
+      </div>
+      <div class="hero-card" aria-label="Featured business services">
+        <h2>One partner for every campaign</h2>
+        <ul>
+          <li>Design-ready artwork support</li>
+          <li>Bulk pricing for teams and events</li>
+          <li>Delivery timelines that fit launch dates</li>
+        </ul>
+      </div>
+    </section>
 
-			</article>
-		</section>
-		<section class="small-12 medium-4 large-4 columns">
-			<section class="row" data-equalizer>
-				<article class="small-6 columns panel" data-equalizer-watch>
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditaod exercitationem enim itaque repudiandae ipsum deleniti.
-				</article>
-				<article class="small-6 columns panel" data-equalizer-watch>
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, perspiciatis, sunt, cumque tempora minus dicta d exercitationem enim itaque repudiandae ipsum deleniti.
-				</article>
-			</section>
-			<section class="row" data-equalizer>
-				<article class="small-6 columns panel" data-equalizer-watch>
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditaod exercitationem enim itaque repudiandae ipsum deleniti.
-				</article>
-				<article class="small-6 columns panel" data-equalizer-watch>
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, perspiciatis, sunt, cumque tempora minus dicta d exercitationem enim itaque repudiandae ipsum deleniti.
-				</article>
-			</section>
-		</section>
-	</section>
-	<!-- <section class="row">
-		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur, quaerat, eum, cum, sequi voluptatibus sit debitis aliquid rem iure molestiae illum atque dolores. Quia dolorem accusamus quam ipsum quidem aperiam!
-	</section> -->
-	<script src="foundation/js/vendor/jquery.js"></script>
-    <script src="foundation/js/foundation.min.js"></script>
-    <script>
-      $(document).foundation();
-    </script>
+    <section id="services" class="page-section" ng-show="site.page === 'services'">
+      <div class="section-heading">
+        <p class="eyebrow">Services</p>
+        <h2>Everything your brand needs to show up consistently.</h2>
+        <p>Choose a single item or build a complete promotional package for your next launch, trade show, campaign, or storefront refresh.</p>
+      </div>
+      <div class="services-grid">
+        <article class="service-card" ng-repeat="service in site.services">
+          <div class="service-icon" aria-hidden="true">{{ service.icon }}</div>
+          <h3>{{ service.name }}</h3>
+          <p>{{ service.description }}</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="quote" class="page-section quote-section" ng-show="site.page === 'quote'">
+      <div class="quote-intro">
+        <p class="eyebrow">Request Quote</p>
+        <h2>Tell us about your project.</h2>
+        <p>Share the basics and our team will follow up with options, pricing, and production timing.</p>
+      </div>
+
+      <form name="quoteForm" class="quote-form" ng-submit="site.submitQuote(quoteForm)" novalidate>
+        <label>
+          Full name
+          <input type="text" name="fullName" ng-model="site.quote.fullName" placeholder="Alex Rivera" required />
+        </label>
+        <label>
+          Email
+          <input type="email" name="email" ng-model="site.quote.email" placeholder="alex@example.com" required />
+        </label>
+        <label>
+          Phone
+          <input type="tel" name="phone" ng-model="site.quote.phone" placeholder="(555) 123-4567" required />
+        </label>
+        <label>
+          Service needed
+          <select name="service" ng-model="site.quote.service" required>
+            <option value="" disabled selected>Select a service</option>
+            <option ng-repeat="service in site.services" value="{{ service.name }}">{{ service.name }}</option>
+          </select>
+        </label>
+        <label class="full-width">
+          Project details
+          <textarea name="details" ng-model="site.quote.details" rows="5" placeholder="Quantity, deadline, sizes, colors, or campaign goals" required></textarea>
+        </label>
+        <button class="button primary full-width" type="submit">Submit Quote Request</button>
+        <p class="form-error" ng-if="site.formAttempted && quoteForm.$invalid">Please complete every field with valid information.</p>
+        <p class="confirmation" role="status" ng-if="site.confirmationVisible">
+          Thank you, {{ site.submittedName }}! Your quote request has been received. We will contact you shortly.
+        </p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 BrandForge Studio. Business printing and promotional products made simple.</p>
+  </footer>
 </body>
 </html>
